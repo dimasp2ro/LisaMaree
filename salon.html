@@ -31,14 +31,15 @@
 	<nav class="nav_mnu blacktxt">
 		<ul>
 			<li><a href="about.html">About us</a></li>
-			<li class="salon"><!-- <a href="salon.html">SALON/STYLIST</a> -->SALON/STYLIST</li>
-			<ul id="slide_salon">
+			<li class="salon"><!-- <a href="salon.html">SALON/STYLIST</a> -->SALON/STYLIST<ul id="slide_salon">
 				<li><a href="salon.html">SALON</a></li>
 				<li><a href="stylist.html">STYLIST</a></li>
-			</ul>
+			</ul></li>
+			
 			<li><a href="FAQ.html">FAQ</a></li>
 			<li><a href="http://www.yourglamspiration.com">BLOG</a></li>
 			<li><a href="contactUs.html">CONTACT</a></li>
+			<li><a class=link id=nav-contact href="https://glamazonapp.com/salon">SALON/STYLIST LOGIN</a></li>
 		</ul>
 	</nav>
 	<div id=clubbing>
@@ -276,6 +277,7 @@
 					<ul>
 						<li><a href="userterms.html">TERMS & CONDITIONS</a></li>
 						<li><a href="privacy.html">PRIVACY POLICY</a></li>
+						<li><p id="sub_pop">SUBSCRIBE</p></li>
 					</ul>
 				</div>
 			</div>
@@ -299,12 +301,68 @@
 				<a class=link id=nav-merchant href=FAQ.html>FAQ</a> 
 				<a class=link href="http://www.yourglamspiration.com">BLOG</a>
 				<a class=link id=nav-contact href=contactUs.html>CONTACT US</a>
+				<a class=link href="https://glamazonapp.com/salon">SALON/STYLIST LOGIN</a>
 				<div class=legal>
 					<a href=userterms.html>TERMS & CONDITIONS</a> 
 					<a href=privacy.html>PRIVACY POLICY</a>
 				</div>
 			</nav>
-			<div class=social-media><a href=/web/20160326105311/https://www.facebook.com/joinastonclub title="Aston Club on Facebook"><div id=fb-link></div></a> <a href=/web/20160326105311/http://twitter.com/Aston_Club title="Aston Club on Twitter"><div id=tw-link></div></a> <a href=/web/20160326105311/http://instagram.com/aston_club title="Aston Club on Instagram"><div id=in-link></div></a></div></div></div><!-- <!DOCTYPE html> --><script type=text/javascript>
+			<div class=social-media><a href=/web/20160326105311/https://www.facebook.com/joinastonclub title="Aston Club on Facebook"><div id=fb-link></div></a> <a href=/web/20160326105311/http://twitter.com/Aston_Club title="Aston Club on Twitter"><div id=tw-link></div></a> <a href=/web/20160326105311/http://instagram.com/aston_club title="Aston Club on Instagram"><div id=in-link></div></a></div></div></div>
+
+	<div id="popup">
+		<figure>
+			<div id="subscribeDialog">			
+				<h2>Become a Glamazon VIP</h2>
+				<p>Get the best deals and hottest beauty trends straight to your inbox</p>
+				<div id="subscribeDialogContent">
+					<form>
+						<input id="subscribeName" placeholder="NAME" type="text" required>
+						<input id="subscribeEmail" placeholder="EMAIL ADDRESS" type="email" required>
+						<span style="color: #808080;" class="btn btn-default clear-btn">Subscribe</span>
+					</form>
+				</div>
+			</div>
+		</figure>
+
+	</div>
+
+
+	<script>
+window.onkeyup = okno; // нажатие Esc, см. условие "e.keyCode==27" 
+document.getElementById('popup').onclick = okno;
+
+function okno(e) {
+  if (e.target.nodeName != 'DIV' && e.target.nodeName != 'H2' && e.target.nodeName != 'P' && e.target.nodeName != 'FORM'  && e.target.nodeName != 'INPUT' && e.target.nodeName != 'FIGCAPTION' || e.keyCode==27) { // через && перечисляются теги, клинкув на которые окно не будет закрыто; сюда же можно включить тег A или IFRAME 
+  	document.getElementById('popup').style.display='none';  	
+		$("#popup").removeClass('popup_fast');
+  }
+};
+
+$('#subscribeDialogContent span').click(function() {
+	$name = $("#subscribeName");
+	$emailAddressSalon = $("#subscribeEmail");
+	if ($name.val().length == 0) {
+		alert('Please enter your name');
+		return false;
+	}
+	function isValidEmailAddress(emailAddress) {
+		var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+		return pattern.test(emailAddress);
+	}
+	if ($emailAddressSalon.val().length == 0 || !isValidEmailAddress($emailAddressSalon)){
+		alert('Please enter your correct email address');
+		return false;
+	}
+	alert('Thanks for subscribing.');
+	$("#popup").removeClass('popup_fast');
+});
+
+$('#sub_pop').click(function() {
+	$("#popup").addClass('popup_fast').css('display', 'table');
+});
+
+</script>
+<!-- <!DOCTYPE html> --><script type=text/javascript>
 			jQuery(function () {
 				var $container = $('.background'),
 				$window = $(window);
@@ -322,10 +380,6 @@
 					var top = document.documentElement.scrollTop;
 
 					$container.css('width', width).css('height', height);
-					fullsizes.css({
-						height: height,
-						width: width
-					});
 					quartersize.css({
 						height: height*0.28,
 						width: width*0.50

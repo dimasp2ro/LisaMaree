@@ -45,6 +45,8 @@
 							<li><a href="FAQ.html">FAQ</a></li>
 							<li><a href="http://www.yourglamspiration.com">BLOG</a></li>
 							<li><a href="contactUs.html">CONTACT</a></li>
+							<li><a class=link id=nav-contact href="https://glamazonapp.com/salon">SALON/STYLIST LOGIN</a></li>
+
 						</ul>
 					</nav>
 					<div id=clubbing>
@@ -285,6 +287,7 @@
 						<ul>
 							<li><a href="userterms.html">TERMS & CONDITIONS</a></li>
 							<li><a href="privacy.html">PRIVACY POLICY</a></li>
+							<li><p id="sub_pop">SUBSCRIBE</p></li>
 						</ul>
 					</div>
 
@@ -312,6 +315,7 @@
 				<a class=link id=nav-merchant href=FAQ.html>FAQ</a> 
 				<a class=link href="http://www.yourglamspiration.com">BLOG</a>
 				<a class=link id=nav-contact href=contactUs.html>CONTACT US</a>
+				<a class=link href="https://glamazonapp.com/salon">SALON/STYLIST LOGIN</a>
 				<div class=legal>
 					<a href=userterms.html>TERMS & CONDITIONS</a> 
 					<a href=privacy.html>PRIVACY POLICY</a>
@@ -327,9 +331,19 @@
 
 	<div id="popup">
 		<figure>
-			<figcaption>заголовок</figcaption>
-			<div>содержание</div>
+			<div id="subscribeDialog">			
+				<h2>Become a Glamazon VIP</h2>
+				<p>Get the best deals and hottest beauty trends straight to your inbox</p>
+				<div id="subscribeDialogContent">
+					<form>
+						<input id="subscribeName" placeholder="NAME" type="text" required>
+						<input id="subscribeEmail" placeholder="EMAIL ADDRESS" type="email" required>
+						<span style="color: #808080;" class="btn btn-default clear-btn">Subscribe</span>
+					</form>
+				</div>
+			</div>
 		</figure>
+
 	</div>
 
 
@@ -338,120 +352,140 @@ window.onkeyup = okno; // нажатие Esc, см. условие "e.keyCode==2
 document.getElementById('popup').onclick = okno;
 
 function okno(e) {
-  if (e.target.nodeName != 'DIV' && e.target.nodeName != 'FIGCAPTION' || e.keyCode==27) { // через && перечисляются теги, клинкув на которые окно не будет закрыто; сюда же можно включить тег A или IFRAME 
-    document.getElementById('popup').style.display='none';
-    localStorage.setItem('popup1', 'none');
+  if (e.target.nodeName != 'DIV' && e.target.nodeName != 'H2' && e.target.nodeName != 'P' && e.target.nodeName != 'FORM'  && e.target.nodeName != 'INPUT' && e.target.nodeName != 'FIGCAPTION' || e.keyCode==27) { // через && перечисляются теги, клинкув на которые окно не будет закрыто; сюда же можно включить тег A или IFRAME 
+  	document.getElementById('popup').style.display='none';  	
+		$("#popup").removeClass('popup_fast');
   }
-}
+};
 
-if(localStorage.getItem('popup1')) {
-  document.getElementById('popup').style.display='none';
-}
+$('#subscribeDialogContent span').click(function() {
+	$name = $("#subscribeName");
+	$emailAddressSalon = $("#subscribeEmail");
+	if ($name.val().length == 0) {
+		alert('Please enter your name');
+		return false;
+	}
+	function isValidEmailAddress(emailAddress) {
+		var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+		return pattern.test(emailAddress);
+	}
+	if ($emailAddressSalon.val().length == 0 || !isValidEmailAddress($emailAddressSalon)){
+		alert('Please enter your correct email address');
+		return false;
+	}
+	alert('Thanks for subscribing.');
+	$("#popup").removeClass('popup_fast');
+});
+
+$('#sub_pop').click(function() {
+	$("#popup").addClass('popup_fast').css('display', 'table');
+});
+
 </script>
 
 
-	<!-- <!DOCTYPE html> -->
-	<script type=text/javascript>
-		jQuery(function () {
-			var $container = $('.background'),
-			$window = $(window);
-
-			var fullsizes = $(".fullsize");
-			var quartersize = $(".quartersize");
-			var fullHeights = $(".fullheight");
-			var fullWidths = $(".fullwidth");
-			var halfheight = $(".halfheight");
-			var halfPad = $(".half-pad");
-			var fzb = $(".fzb");
-
-			var fullsize = function (e) {
-				var height = $window.height();
-				var width = $window.width();
-				var top = document.documentElement.scrollTop;
-
-				$container.css('width', width).css('height', height + 90);
-				fullsizes.css({
-					height: height+30,
-					width: width
-				});
-				fzb.css({
-					height: height + height/10,
-					width: width
-				});
-				quartersize.css({
-					height: height*0.28,
-					width: width*0.50
-				});
-				fullHeights.css("height", height + "px");
-				fullWidths.css("width", width + "px");
-				halfheight.css("height", height*0.7 + "px");
-				halfPad.css("padding-top", height/2-100 + "px");
-				$("#text").css("left", width/2 + "px");
-
-				if(height < 800 || width < 800){
-					$('html').css("font-size", Math.max((Math.min(height, width)/800*20-6), 8) + "pt");
-				}
-				else{
-					$('html').css("font-size", "14pt");
-				}
-
-				if(height < 600 || width < 900){
-					if(!jQuery.browser.mobile && !navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)){
-						document.getElementById("pc-nav").style.display = "none";
-						document.getElementById("pc-show-menu").style.display = "none";
-						document.getElementById("mobile-nav").style.display = "block";
-					}
-				}
-				else{
-					if(!jQuery.browser.mobile && !navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)){
-						document.getElementById("pc-nav").style.display = "block";
-						document.getElementById("pc-show-menu").style.display = "block";
-						document.getElementById("mobile-nav").style.display = "none";
-					}
-				}
-
-				$(".mainButton").css({
-					width: Math.min(360, Math.round(height/8/0.25)),
-					height: Math.min(90, Math.round(height/8)),
-					"line-height": Math.min(90, Math.round(height/8)) + 5 + "px"
-				});
-
-				$("#scroll-button").css({
-					top: height - height/6,
-					left: width/2 - 45
-				});
-			}
-			fullsize(window.event);
-
-			$window.resize(fullsize);
-		});
-
-		function JSONToString(json){
-			var output = "";
-			for(data in json){
-				output += data + "=" + json[data] + "&";
-			}
-			output = output.slice(0, -1);
-			output = encodeURIComponent(output);
-			output = output.replace(/%20/g,'+').replace(/%3D/g,'=').replace(/%26/g,'&');
-			return output;
-		}
-	</script>
-	<!-- <!DOCTYPE html> -->
-	<script type=text/javascript src=js/classie.js></script>
-	<script type=text/javascript src=js/perspective_menu.js></script>
-	<script type=text/javascript src=js/homePhone.js></script>
-	<script type=text/javascript src="js/owl.carousel.min.js"></script>
-
-	<script type=text/javascript>
-		if(jQuery.browser.mobile || navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)){
-			window.location.replace("mobile.html");
-		}
-		document.getElementById('nav-home').className = "nav-active";
+<!-- <!DOCTYPE html> -->
+<script type=text/javascript>
+	jQuery(function () {
+		var $container = $('.background'),
 		$window = $(window);
-		var prevSlide = 1; 
-		var prevTime = new Date().getTime(); 
-		var s3prev = 0; 
+
+		var fullsizes = $(".fullsize");
+		var quartersize = $(".quartersize");
+		var fullHeights = $(".fullheight");
+		var fullWidths = $(".fullwidth");
+		var halfheight = $(".halfheight");
+		var halfPad = $(".half-pad");
+		var fzb = $(".fzb");
+
+		var fullsize = function (e) {
+			var height = $window.height();
+			var width = $window.width();
+			var top = document.documentElement.scrollTop;
+
+			$container.css('width', width).css('height', height + 90);
+			fullsizes.css({
+				height: height+30,
+				width: width
+			});
+			fzb.css({
+				height: height + height/10,
+				width: width
+			});
+			quartersize.css({
+				height: height*0.28,
+				width: width*0.50
+			});
+			fullHeights.css("height", height + "px");
+			fullWidths.css("width", width + "px");
+			halfheight.css("height", height*0.7 + "px");
+			halfPad.css("padding-top", height/2-100 + "px");
+			$("#text").css("left", width/2 + "px");
+
+			if(height < 800 || width < 800){
+				$('html').css("font-size", Math.max((Math.min(height, width)/800*20-6), 8) + "pt");
+			}
+			else{
+				$('html').css("font-size", "14pt");
+			}
+
+			if(height < 600 || width < 900){
+				if(!jQuery.browser.mobile && !navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)){
+					document.getElementById("pc-nav").style.display = "none";
+					document.getElementById("pc-show-menu").style.display = "none";
+					document.getElementById("mobile-nav").style.display = "block";
+				}
+			}
+			else{
+				if(!jQuery.browser.mobile && !navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)){
+					document.getElementById("pc-nav").style.display = "block";
+					document.getElementById("pc-show-menu").style.display = "block";
+					document.getElementById("mobile-nav").style.display = "none";
+				}
+			}
+
+			$(".mainButton").css({
+				width: Math.min(360, Math.round(height/8/0.25)),
+				height: Math.min(90, Math.round(height/8)),
+				"line-height": Math.min(90, Math.round(height/8)) + 5 + "px"
+			});
+
+			$("#scroll-button").css({
+				top: height - height/6,
+				left: width/2 - 45
+			});
+		}
+		fullsize(window.event);
+
+		$window.resize(fullsize);
+	});
+
+	function JSONToString(json){
+		var output = "";
+		for(data in json){
+			output += data + "=" + json[data] + "&";
+		}
+		output = output.slice(0, -1);
+		output = encodeURIComponent(output);
+		output = output.replace(/%20/g,'+').replace(/%3D/g,'=').replace(/%26/g,'&');
+		return output;
+	}
+</script>
+<!-- <!DOCTYPE html> -->
+<script type=text/javascript src=js/classie.js></script>
+<script type=text/javascript src=js/perspective_menu.js></script>
+<script type=text/javascript src=js/homePhone.js></script>
+<script type=text/javascript src="js/owl.carousel.min.js"></script>
+
+<script type=text/javascript>
+	if(jQuery.browser.mobile || navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)){
+		window.location.replace("mobile.html");
+	}
+	document.getElementById('nav-home').className = "nav-active";
+	$window = $(window);
+	var prevSlide = 1; 
+	var prevTime = new Date().getTime(); 
+	var s3prev = 0; 
 
 		//html elements
 		var background = $(".background");
