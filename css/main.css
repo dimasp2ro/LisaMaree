@@ -504,6 +504,224 @@ html, body, .perspective {
 	width: 100%;
 	height: 100%; }
 
+/* 
+ *  Owl Carousel - Animate Plugin
+ */
+.owl-carousel .animated {
+  -webkit-animation-duration: 1000ms;
+  animation-duration: 1000ms;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.owl-carousel .owl-animated-in {
+  z-index: 0;
+}
+.owl-carousel .owl-animated-out {
+  z-index: 1;
+}
+.owl-carousel .fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 
+ * 	Owl Carousel - Auto Height Plugin
+ */
+.owl-height {
+  -webkit-transition: height 500ms ease-in-out;
+  -moz-transition: height 500ms ease-in-out;
+  -ms-transition: height 500ms ease-in-out;
+  -o-transition: height 500ms ease-in-out;
+  transition: height 500ms ease-in-out;
+}
+
+/* 
+ *  Core Owl Carousel CSS File
+ */
+.owl-carousel {
+  display: none;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  /* position relative and z-index fix webkit rendering fonts issue */
+  position: relative;
+  z-index: 1;
+}
+.owl-carousel .owl-stage {
+  position: relative;
+  -ms-touch-action: pan-Y;
+}
+.owl-carousel .owl-stage:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+.owl-carousel .owl-stage-outer {
+  position: relative;
+  overflow: hidden;
+  /* fix for flashing background */
+  -webkit-transform: translate3d(0px, 0px, 0px);
+}
+.owl-carousel .owl-controls .owl-nav .owl-prev,
+.owl-carousel .owl-controls .owl-nav .owl-next,
+.owl-carousel .owl-controls .owl-dot {
+  cursor: pointer;
+  cursor: hand;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.owl-carousel.owl-loaded {
+  display: block;
+}
+.owl-carousel.owl-loading {
+  opacity: 0;
+  display: block;
+}
+.owl-carousel.owl-hidden {
+  opacity: 0;
+}
+.owl-carousel .owl-refresh .owl-item {
+  display: none;
+}
+.owl-carousel .owl-item {
+  position: relative;
+  min-height: 1px;
+  float: left;
+  -webkit-backface-visibility: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.owl-carousel .owl-item img {
+  display: block;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+}
+.owl-carousel.owl-text-select-on .owl-item {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+.owl-carousel .owl-grab {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: -o-grab;
+  cursor: -ms-grab;
+  cursor: grab;
+}
+.owl-carousel.owl-rtl {
+  direction: rtl;
+}
+.owl-carousel.owl-rtl .owl-item {
+  float: right;
+}
+
+/* No Js */
+.no-js .owl-carousel {
+  display: block;
+}
+
+/* 
+ * 	Owl Carousel - Lazy Load Plugin
+ */
+.owl-carousel .owl-item .owl-lazy {
+  opacity: 0;
+  -webkit-transition: opacity 400ms ease;
+  -moz-transition: opacity 400ms ease;
+  -ms-transition: opacity 400ms ease;
+  -o-transition: opacity 400ms ease;
+  transition: opacity 400ms ease;
+}
+.owl-carousel .owl-item img {
+  transform-style: preserve-3d;
+}
+
+/* 
+ * 	Owl Carousel - Video Plugin
+ */
+.owl-carousel .owl-video-wrapper {
+  position: relative;
+  height: 100%;
+  background: #000;
+}
+.owl-carousel .owl-video-play-icon {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  left: 50%;
+  top: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
+  background: url("owl.video.play.png") no-repeat;
+  cursor: pointer;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: scale 100ms ease;
+  -moz-transition: scale 100ms ease;
+  -ms-transition: scale 100ms ease;
+  -o-transition: scale 100ms ease;
+  transition: scale 100ms ease;
+}
+.owl-carousel .owl-video-play-icon:hover {
+  -webkit-transition: scale(1.3, 1.3);
+  -moz-transition: scale(1.3, 1.3);
+  -ms-transition: scale(1.3, 1.3);
+  -o-transition: scale(1.3, 1.3);
+  transition: scale(1.3, 1.3);
+}
+.owl-carousel .owl-video-playing .owl-video-tn,
+.owl-carousel .owl-video-playing .owl-video-play-icon {
+  display: none;
+}
+.owl-carousel .owl-video-tn {
+  opacity: 0;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  -webkit-transition: opacity 400ms ease;
+  -moz-transition: opacity 400ms ease;
+  -ms-transition: opacity 400ms ease;
+  -o-transition: opacity 400ms ease;
+  transition: opacity 400ms ease;
+}
+.owl-carousel .owl-video-frame {
+  position: relative;
+  z-index: 1;
+}
+
+
 .perspective {
 	position: relative; }
 
@@ -694,18 +912,19 @@ html, body, .perspective {
 	#home .ptitle {
 		padding-bottom: 3.5rem; }
 	#home .the-app {
-		font-family: "ProximaNovaBold", sans-serif;
+		font-family: "FaberSansPro45reduced", sans-serif;
+		font-weight: bold;
 		font-size: 0.75rem;
 		letter-spacing: 2px; }
 	#home .h1slides {
-		color: #b3ab8d;
+		color: #f45fff;
 		margin: 0px 5px;
 		font-weight: bold;
 		font-size: 4.25rem;
 		letter-spacing: 10px; }
 	#home .h3slides {
 		font-style: italic;
-		color: #b3ab8d;
+		color: #f45fff;
 		margin: 0px 5px;
 		font-size: 1.2rem;
 		padding-left: 0.5rem;
@@ -713,7 +932,7 @@ html, body, .perspective {
 	#home .pslides {
 		color: #4c5359;
 		font-size: 1.2rem;
-		font-family: "ProximaNovaReg", sans-serif;
+		font-family: "FaberSansPro45reduced", sans-serif;
 		padding-left: 0.5rem; }
 	#home .download-app, #home .download-app-bottom {
 		background-image: url("../art/appStoreLogo.svg");
@@ -826,7 +1045,7 @@ html, body, .perspective {
 		background-repeat: no-repeat;
 		background-size: auto 100%;
 		float: center;
-		z-index: -1;
+		z-index: 1;
 		background-position: center;
 		-webkit-transition: opacity 0.5s linear;
 		-moz-transition: opacity 0.5s linear;
@@ -844,7 +1063,8 @@ html, body, .perspective {
 			background-repeat: no-repeat; }
 		#home .background .bg0 {
 			background: url(../art/home/gallery_8.jpg);
-			background-size: cover; }
+			background-size: cover;
+			background-position: center bottom; }
 		#home .background .bg1 {
 			background-color: white;
 			background-size: cover; }
@@ -881,7 +1101,7 @@ html, body, .perspective {
 			position: fixed; }
 	#contact-us p {
 		margin: 0px;
-		font-family: "ProximaNovaReg";
+		font-family: "FaberSansPro45reduced";
 		letter-spacing: 1px;
 		padding: 3px 0px;
 		font-size: 1.5rem; }
@@ -934,7 +1154,7 @@ html, body, .perspective {
 		height: 40%;
 		width: 100%; }
 	#mobile h1 {
-		font-family: "Levenim MT", sans-serif;
+		font-family: "FaberSansPro45reduced", sans-serif;
 		font-size: 2.5rem;
 		letter-spacing: 10px;
 		margin: 15px 0 5px 0;
@@ -946,32 +1166,33 @@ html, body, .perspective {
 		margin-top: 2rem;
 		margin-bottom: 0rem; }
 	#mobile p {
-		font-family: "ProximaNovaIt", sans-serif;
+		font-family: "FaberSansPro45reduced", sans-serif;
 		font-size: 0.8rem;
 		margin: 0 6%;
 		padding-top: 15px; }
 	#mobile .pheading {
 		padding-bottom: 3rem; }
 	#mobile .the-app {
-		font-family: "ProximaNovaBold", sans-serif;
+		font-family: "FaberSansPro45reduced", sans-serif;
+		font-weight: bold;
 		font-size: 0.75rem;
 		letter-spacing: 2px;
 		padding-top: 0px; }
 	#mobile .h1slides {
-		color: #b3ab8d;
+		color: #f45fff;
 		margin: 0px 5px;
 		font-weight: bold;
 		font-size: 2.25rem;
 		letter-spacing: 5px; }
 	#mobile .h3slides {
 		font-style: italic;
-		color: #b3ab8d;
+		color: #f45fff;
 		margin: 0px 5px;
 		font-size: 1.2rem; }
 	#mobile .pslides {
 		color: #4c5359;
 		font-size: 1rem;
-		font-family: "ProximaNovaReg", sans-serif; }
+		font-family: "FaberSansPro45reduced", sans-serif; }
 	#mobile .download-app {
 		margin-top: 20px;
 		width: 9rem;
@@ -1120,10 +1341,10 @@ html, body, .perspective {
 				cursor: pointer;
 				padding-right: 20px; }
 			#venues #search .right a:hover {
-				color: #b3ab8d; }
+				color: #f45fff; }
 			#venues #search .right .active {
 				font-weight: bold;
-				color: #b3ab8d; }
+				color: #f45fff; }
 	#venues #results {
 		width: 40%;
 		min-width: 500px;
@@ -1148,7 +1369,7 @@ html, body, .perspective {
 		overflow: hidden; }
 	#venues p {
 		margin: 0px;
-		font-family: "ProximaNovaReg";
+		font-family: "FaberSansPro45reduced";
 		letter-spacing: 1px;
 		padding: 3px 0px;
 		font-size: 0.8rem;
@@ -1231,7 +1452,7 @@ html, body, .perspective {
 			margin: 0px; }
 		#club-membership .middle p {
 			color: #707070;
-			font-family: "ProximaNovaReg";
+			font-family: "FaberSansPro45reduced";
 			font-size: 0.85rem;
 			letter-spacing: 1px;
 			line-height: 1.5;
@@ -1257,12 +1478,13 @@ html, body, .perspective {
 		#club-membership .memberships .title {
 			letter-spacing: 4px;
 			font-size: 1.25rem;
-			font-family: "ProximaNovaBold" Times;
+			font-family: "FaberSansPro45reduced" Times;
+			font-weight: bold;
 			margin: 0; }
 		#club-membership .memberships .subtitle {
 			margin: 2px 0px;
 			font-size: 0.85rem;
-			font-family: "ProximaNovaReg" Times;
+			font-family: "FaberSansPro45reduced" Times;
 			letter-spacing: 1px; }
 		#club-membership .memberships .chunk {
 			border-bottom: 1px solid;
@@ -1275,11 +1497,12 @@ html, body, .perspective {
 		#club-membership .memberships .platinum {
 			color: #afb8c6; }
 		#club-membership .memberships .signature {
-			color: #b3ab8d; }
+			color: #f45fff; }
 	#club-membership #slices {
 		width: 100%;
 		color: white;
-		font-family: "ProximaNovaBold", Times;
+		font-family: "FaberSansPro45reduced", Times;
+		font-weight: bold;
 		letter-spacing: 4px;
 		font-size: 18pt;
 		height: 900px;
@@ -1422,7 +1645,7 @@ html, body, .perspective {
 			overflow-y: scroll;
 			max-height: 200px;
 			transition: all 0.5s;
-			border-bottom: 1px #b3ab8d solid; }
+			border-bottom: 1px #f45fff solid; }
 		#voucher-store .modal #venue-dropdown .dropdown-item {
 			margin: 0px;
 			padding: 10px 10px; }
@@ -1509,7 +1732,7 @@ html, body, .perspective {
 			margin: 0px; }
 		#merchant .middle p {
 			color: #707070;
-			font-family: "ProximaNovaReg";
+			font-family: "FaberSansPro45reduced";
 			font-size: 0.85rem;
 			letter-spacing: 1px;
 			line-height: 1.5;
@@ -1521,7 +1744,8 @@ html, body, .perspective {
 			letter-spacing: 1px;
 			font-size: 0.85rem;
 			font-weight: normal;
-			font-family: "ProximaNovaBold";
+			font-family: "FaberSansPro45reduced";
+			font-weight: bold;
 			padding: 10px;
 			padding-top: 30px;
 			-webkit-margin-before: 0em;
@@ -1598,7 +1822,7 @@ html, body, .perspective {
 		#essendon .circles .circled {
 			float: center;
 			margin: auto;
-			border-color: #b3ab8d;
+			border-color: #f45fff;
 			border-width: 2px;
 			border-style: solid;
 			border-radius: 200px;
@@ -1616,7 +1840,7 @@ html, body, .perspective {
 			padding-right: 10%; }
 		#essendon .circles .small {
 			color: #707070;
-			font-family: "ProximaNovaReg";
+			font-family: "FaberSansPro45reduced";
 			font-size: 0.85rem;
 			letter-spacing: 1px;
 			line-height: 1.5;
@@ -1624,7 +1848,7 @@ html, body, .perspective {
 		#essendon .circles h1 {
 			margin-top: 5px;
 			margin-bottom: 0;
-			font-family: "ProximaNovaReg"; }
+			font-family: "FaberSansPro45reduced"; }
 	#essendon .phone {
 		margin-top: 10rem;
 		text-align: left;
@@ -1644,20 +1868,20 @@ html, body, .perspective {
 				margin: 0px; }
 			#essendon .phone .phone-text p {
 				color: #707070;
-				font-family: "ProximaNovaReg";
+				font-family: "FaberSansPro45reduced";
 				font-size: 0.85rem;
 				letter-spacing: 1px;
 				line-height: 1.5;
 				max-width: 750px; }
 			#essendon .phone .phone-text ol {
-				font-family: "ProximaNovaReg";
+				font-family: "FaberSansPro45reduced";
 				margin-left: 0.75rem;
 				margin-top: 0px; }
 				#essendon .phone .phone-text ol li {
 					padding: 0px;
 					font-size: 2rem;
 					font-weight: bold;
-					color: #b3ab8d; }
+					color: #f45fff; }
 					#essendon .phone .phone-text ol li span {
 						white-space: nowrap;
 						margin-left: -1rem;
@@ -1737,7 +1961,7 @@ html, body, .perspective {
 			background-size: cover; }
 	#legal .content,
 	#legal .content_faq{
-		font-family: "ProximaNovaReg";
+		font-family: "FaberSansPro45reduced";
 		text-align: left;
 		max-width: 1000px;
 		margin: 20px;
@@ -1746,7 +1970,8 @@ html, body, .perspective {
 		padding: 20px; }
 		#legal .content a,
 		#legal .content_faq a{
-			font-family: "ProximaNovaBold";
+			font-family: "FaberSansPro45reduced";
+			font-weight: bold;
 			text-decoration: underline; }
 		#legal .content ol,
 		#legal .content_faq ol{
@@ -1769,7 +1994,8 @@ html, body, .perspective {
 			counter-increment: item;
 			position: absolute;
 			left: -3.5rem;
-			font-family: "ProximaNovaBold"; }
+			font-family: "FaberSansPro45reduced";
+			font-weight: bold; }
 		#legal .content li li:before {
 			left: -4rem; }
 		#legal .content li li li:before {
@@ -1791,7 +2017,8 @@ html, body, .perspective {
 		counter-increment: item;
 		position: absolute;
 		left: -1.5rem;
-		font-family: "ProximaNovaBold"; }
+		font-family: "FaberSansPro45reduced";
+		font-weight: bold; }
 	#legal .app li li:before {
 		left: -2.5rem; }
 	#legal .app li li li:before {
@@ -1823,7 +2050,7 @@ html, body, .perspective {
 	font-size: 18px;
 	overflow-y: hidden;
 	letter-spacing: 1px;
-	font-family: "ProximaNovaReg"; }
+	font-family: "FaberSansPro45reduced"; }
 	#aston-nav nav {
 		height: 100%;
 		overflow-y: scroll; }
@@ -1833,21 +2060,21 @@ html, body, .perspective {
 			display: block;
 			max-width: 40%; }
 		#aston-nav nav a:hover {
-			color: #b3ab8d; }
+			color: #f45fff; }
 		#aston-nav nav .legal {
 			margin-top: 30%; }
 			#aston-nav nav .legal a {
 				padding-right: 10px;
 				display: block; }
 			#aston-nav nav .legal a:hover {
-				color: #b3ab8d; }
+				color: #f45fff; }
 	#aston-nav .nav-title {
 		text-transform: uppercase;
 		font-size: 0.6rem;
 		font-weight: bold;
 		letter-spacing: 2px; }
 	#aston-nav .nav-active {
-		color: #b3ab8d; }
+		color: #f45fff; }
 	#aston-nav .break {
 		height: 1px;
 		width: 50%;
@@ -1919,7 +2146,7 @@ html, body, .perspective {
 	left: 39px;
 	font-size: 12pt;
 	letter-spacing: 3px;
-	font-family: "ProximaNovaReg";
+	font-family: "FaberSansPro45reduced";
 	display: none; }
 	#pc-show-menu div {
 		float: left;
@@ -1959,15 +2186,15 @@ html, body, .perspective {
 	#pc-nav #controls {
 		position: inherit;
 		width: 100%;
-		top: 0px;
+		top: 15px;
 		text-align: center; }
 		#pc-nav #controls .logo {
 			float: left;
 			background-repeat: no-repeat;
-			background-size: 100%;
-			width: 105px;
-			height: 70px;
-			margin-top: 35px;
+			background-height: 100%;
+			width: 220px;
+			height: 149px;
+			/*margin-top: 35px;*/
 			margin-right: -88px;
 			margin-left: 15px;
 			display: inline-block;
@@ -1982,7 +2209,11 @@ html, body, .perspective {
 			-webkit-background-size: cover;
 			background-size: cover;}
 	#pc-nav #controls #logoB{
-		margin-left: -16px;
+		margin-left: 0px;
+		-webkit-background-size: cover;
+		background-size: cover;
+		margin-left: -132px;
+		margin-top: 35px;
 	}
 		#pc-nav #controls .logo-black {
 			background-image: url('../art/logoblack.png');
@@ -1990,19 +2221,19 @@ html, body, .perspective {
 		#pc-nav #controls #clubbing {
 			position: inherit;
 			right: 84px;
-			top: 50px; }
+			top: 65px; }
 			#pc-nav #controls #clubbing div {
 				float: left; }
 		#pc-nav #controls .btn-white {
 			color: #FFF;
 			cursor: pointer;
-			padding: 10px 20px 5px 20px;
+			padding: 10px 20px 7px 20px;
 			border: 2px solid transparent;
 			border-radius: 3px;
 			transition: 1s; }
 		#pc-nav #controls .btn-black {
 			color: #000;
-			padding: 10px 20px 5px 20px;
+			padding: 10px 20px 7px 20px;
 			border: 2px solid transparent;
 			border-radius: 3px;
 			transition: 1s; }
@@ -2023,7 +2254,7 @@ html, body, .perspective {
 			-webkit-transition: 1s; }
 
 .header-white-small {
-	background-color: rgba(0, 0, 0, 0.5);
+/*	background-color: rgba(0, 0, 0, 0.5);*/
 	-ms-transform: translate(0, -15px);
 	-webkit-transform: translate(0, -15px);
 	transform: translate(0, -15px); }
@@ -2056,8 +2287,8 @@ html, body, .perspective {
 .title {
 	position: relative; }
 	.title h1 {
-		font-family: "Levenim MT", sans-serif;
-		font-size: 4.5rem;
+		font-family: "FaberSansPro45reduced", sans-serif;
+		font-size: 3.38rem;
 		letter-spacing: 10px;
 		margin: 0.3em 0; }
 	.title h3 {
@@ -2072,8 +2303,8 @@ html, body, .perspective {
 			margin: 0 20px;
 			height: 1px; }
 	.title p {
-		font-family: "ProximaNovaIt", sans-serif;
-		font-size: 1.45rem;
+		font-family: "FaberSansPro45reduced", sans-serif;
+		font-size: 1.08rem;
 		padding: 0px;
 		padding-top: 10px;
 		margin: 0px; }
@@ -2083,12 +2314,13 @@ html, body, .perspective {
 	width: 100%; }
 
 .mainButton {
-	color: #b3ab8d;
-	font-family: "ProximaNovaBold", sans-serif;
+	color: #f45fff;
+	font-family: "FaberSansPro45reduced", sans-serif;
+	font-weight: bold;
 	font-size: 1.25rem;
 	letter-spacing: 3px;
 	line-height: 100%;
-	border: 2px #b3ab8d solid;
+	border: 2px #f45fff solid;
 	border-radius: 3px;
 	margin-right: auto;
 	margin-left: auto;
@@ -2108,14 +2340,16 @@ html, body, .perspective {
 	background-position: center;
 	margin-left: auto;
 	margin-right: auto;
-	cursor: pointer; }
+	cursor: pointer;
+	z-index: 20; }
 	#scroll-button img {
 		width: 3rem;
 		height: 3rem;
 		transition: all 0.4s;
 		-webkit-transition: all 0.4s; }
 	#scroll-button p {
-		font-family: "ProximaNovaBold", Times;
+		font-family: "FaberSansPro45reduced", Times;
+		font-weight: bold;
 		font-size: 0.75rem;
 		letter-spacing: 2px; }
 
@@ -2158,7 +2392,7 @@ html, body, .perspective {
 	max-width: 500px;
 	width: 80%;
 	background-color: transparent;
-	color: #b3ab8d;
+	color: #f45fff;
 	display: none;
 	overflow-x: visible;
 	margin: auto;
@@ -2166,23 +2400,23 @@ html, body, .perspective {
 	text-align: left;
 	padding-bottom: 200px; }
 	.modal h1 {
-		font-family: "ProximaNovaReg", sans-serif;
+		font-family: "FaberSansPro45reduced", sans-serif;
 		font-size: 20pt;
 		letter-spacing: 1px;
 		font-weight: normal;
 		letter-spacing: 2px; }
 	.modal h3 {
-		font-family: "ProximaNovaReg", sans-serif;
+		font-family: "FaberSansPro45reduced", sans-serif;
 		letter-spacing: 0px;
 		font-weight: normal;
 		font-size: 16pt;
 		margin: 0rem;
 		padding: 25px 0px;
-		border-bottom: 1px #b3ab8d solid;
+		border-bottom: 1px #f45fff solid;
 		white-space: normal; }
 	.modal p, .modal label {
 		font-size: 12pt;
-		font-family: "ProximaNovaReg", sans-serif;
+		font-family: "FaberSansPro45reduced", sans-serif;
 		vertical-align: bottom;
 		-webkit-margin-before: 0em;
 		-webkit-margin-after: 0em;
@@ -2193,14 +2427,14 @@ html, body, .perspective {
 	.modal img.img-gap {
 		padding-right: 20px; }
 	.modal input, .modal textarea, .modal #send-div, .modal #dropdown-main {
-		font-family: "ProximaNovaReg", sans-serif;
+		font-family: "FaberSansPro45reduced", sans-serif;
 		color: white;
 		font-size: 12pt;
 		width: 100%;
 		resize: none;
 		background-color: transparent;
 		border: none;
-		border-bottom: 1px #b3ab8d solid;
+		border-bottom: 1px #f45fff solid;
 		margin-top: 10px;
 		padding: 20px 2%; }
 	.modal input:hover, .modal textarea:hover, .modal #send-div:hover, .modal #dropdown-main:hover {
@@ -2210,11 +2444,12 @@ html, body, .perspective {
 		background-color: rgba(179, 171, 141, 0.15);
 		background-image: none; }
 	.modal input.button {
-		font-family: "ProximaNovaBold";
-		border: 1px #b3ab8d solid;
+		font-family: "FaberSansPro45reduced";
+		font-weight: bold;
+		border: 1px #f45fff solid;
 		letter-spacing: 1px;
 		font-weight: bold;
-		color: #b3ab8d;
+		color: #f45fff;
 		margin-top: 0px; }
 	.modal input[type="text"], .modal #send-div {
 		max-width: 480px;
@@ -2257,7 +2492,8 @@ html, body, .perspective {
 		background-repeat: no-repeat;
 		background-position: 50% 20px; }
 		.modal .error h3 {
-			font-family: "ProximaNovaBold";
+			font-family: "FaberSansPro45reduced";
+			font-weight: bold;
 			font-size: 1rem;
 			border: none;
 			padding: 0px;
@@ -2269,14 +2505,15 @@ html, body, .perspective {
 			margin: auto; }
 
 .success {
-	border: 1px #b3ab8d solid;
+	border: 1px #f45fff solid;
 	text-align: center;
 	padding-bottom: 20px;
 	background-image: url("../art/tick.png");
 	background-repeat: no-repeat;
 	background-position: 50% 20px; }
 	.success h3 {
-		font-family: "ProximaNovaBold";
+		font-family: "FaberSansPro45reduced";
+		font-weight: bold;
 		font-size: 1rem;
 		border: none;
 		padding: 0px;
@@ -2291,7 +2528,8 @@ html, body, .perspective {
 		padding: 0px;
 		margin: 0px;
 		text-transform: uppercase;
-		font-family: "ProximaNovaBold";
+		font-family: "FaberSansPro45reduced";
+		font-weight: bold;
 		letter-spacing: 2px; }
 
 .error {
@@ -2304,7 +2542,8 @@ html, body, .perspective {
 	background-repeat: no-repeat;
 	background-position: 50% 20px; }
 	.error h3 {
-		font-family: "ProximaNovaBold";
+		font-family: "FaberSansPro45reduced";
+		font-weight: bold;
 		font-size: 1rem;
 		border: none;
 		padding: 0px;
@@ -2316,11 +2555,12 @@ html, body, .perspective {
 		margin: auto; }
 
 .processing {
-	border: 1px #b3ab8d solid;
+	border: 1px #f45fff solid;
 	text-align: center;
 	padding-bottom: 0px; }
 	.processing h3 {
-		font-family: "ProximaNovaBold";
+		font-family: "FaberSansPro45reduced";
+		font-weight: bold;
 		font-size: 1rem;
 		border: none;
 		padding: 0px;
@@ -2381,13 +2621,13 @@ html, body, .perspective {
 		margin-right: 0%; } }
 
 .transformicon {
-	@font-face {
-		font-family: 'Source Sans Pro';
+	/*@font-face {
+		font-family: 'FaberSansPro45reduced';
 		font-style: normal;
 		font-weight: 300;
-		src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(../fonts/sourcesanspro/v6/toadOcfmlt9b38dHJxOBGNbE_oMaV8t2eFeISPpzbdE.woff) format('woff'); }
-
-	@font-face {
+		src: local('FaberSansPro45reduced'), local('FaberSansPro45reduced'), url(../fonts/FaberSansPro45reduced.woff) format('woff'); }
+*/
+/*	@font-face {
 		font-family: 'Source Sans Pro';
 		font-style: normal;
 		font-weight: 400;
@@ -2397,7 +2637,7 @@ html, body, .perspective {
 		font-family: 'Source Sans Pro';
 		font-style: normal;
 		font-weight: 600;
-		src: local('Source Sans Pro Semibold'), local('SourceSansPro-Semibold'), url(../fonts/sourcesanspro/v6/toadOcfmlt9b38dHJxOBGJ6-ys_j0H4QL65VLqzI3wI.woff) format('woff'); }
+		src: local('Source Sans Pro Semibold'), local('SourceSansPro-Semibold'), url(../fonts/sourcesanspro/v6/toadOcfmlt9b38dHJxOBGJ6-ys_j0H4QL65VLqzI3wI.woff) format('woff'); }*/
 
 	/* ====================== lines button ==================================================*/ }
 	.transformicon html, .transformicon body {
@@ -2406,7 +2646,7 @@ html, body, .perspective {
 		background-color: #12171A;
 		color: #516774;
 		border: 1px solid transparent;
-		font-family: "Source Sans pro", sans-serif; }
+		font-family: "FaberSansPro45reduced", sans-serif; }
 	.transformicon a {
 		color: white;
 		text-decoration: none; }
@@ -2591,13 +2831,14 @@ html, body, .perspective {
 			transform: rotate3d(0, 0, 1, -45deg); }
 
 @font-face {
-	font-family: 'ProximaNovaReg';
+	font-family: 'FaberSansPro45reduced';
+	src: url('fonts/FaberSansPro45reduced.eot');
+	src: local('☺'), url('fonts/FaberSansPro45reduced.woff') format('woff'), url('fonts/FaberSansPro45reduced.ttf') format('truetype'), url('fonts/FaberSansPro45reduced.svg') format('svg');
+	font-weight: normal;
 	font-style: normal;
-	font-weight: 400;
-	src: url('../fonts/proximanova-regular-webfont.eot');
-	src: url('../fonts/proximanova-regular-webfont.eot') format('embedded-opentype'), url('../fonts/proximanova-regular-webfont.woff') format('woff'), url('../fonts/proximanova-regular-webfont.ttf') format('truetype'), url('../fonts/proximanova-regular-webfont.svg') format('svg'); }
+}
 
-@font-face {
+/*@font-face {
 	font-family: 'ProximaNovaBold';
 	font-style: normal;
 	font-weight: 600;
@@ -2616,14 +2857,14 @@ html, body, .perspective {
 	font-style: normal;
 	src: url('../fonts/lvnm_0-webfont.eot');
 	src: url('../fonts/lvnm_0-webfont.eot') format('embedded-opentype'), url('../fonts/lvnm_0-webfont.woff') format('woff'), url('../fonts/lvnm_0-webfont.ttf') format('truetype'), url('../fonts/lvnm_0-webfont.svg') format('svg'); }
-
+*/
 a {
 	color: inherit;
 	text-decoration: inherit; }
 
 body {
 	text-align: center;
-	font-family: "Levenim MT";
+	font-family: "FaberSansPro45reduced";
 	-webkit-margin-before: 0em;
 	-webkit-margin-after: 0em; }
 
@@ -2646,7 +2887,7 @@ html {
 	text-transform: uppercase; }
 
 .font_LevenimMT {
-	font-family: 'Levenim MT'; }
+	font-family: 'FaberSansPro45reduced'; }
 
 .background {
 	width: 100%;
@@ -2665,25 +2906,27 @@ html {
 
 .nav_mnu{
 	position: inherit;
-	top: 47px;
-	left: 20%;
+	top: 62px;
+	left: 30%;
 	text-align: center;
 	transition: all 0s ease;
 	transition-delay: 0s;
+	padding-left: 0;
+	width: 100%;
 }
 
 .nav_mnu>ul{
 	text-transform: uppercase;
 	list-style: none;
 	float: left;
-	width: 100%;
-	display: inline-block;
+	width: 70%;
+	/*display: inline-block;*/
 	position: relative;
 }
 .nav_mnu>ul>li{
 	display: inline-block;
 	float: left;
-	margin-right: 20px;
+	margin: 0 1%;
 }
 .nav_mnu ul li a{
 	display: block;
@@ -2692,17 +2935,64 @@ html {
 }
 
 #presslogo{
-	background-color: #fff;
-	background-color: rgba(255, 255, 255, 0.75);
+	/*background-color: #fff;*/
+	/*background-color: rgba(255, 255, 255, 0.75);*/
 	width: auto;
-	height: 90px;
-	line-height: 90px;
-	overflow-x: scroll;
-	overflow-y: hidden;
-	white-space: nowrap;
-	vertical-align: middle;
-	margin-top: 8vh;
+	height: 70px;
+	line-height: 70px;
+	/*overflow-x: scroll;*/
+	/*overflow-y: hidden;*/
+	/*white-space: nowrap;*/
+	/*vertical-align: middle;*/
+	margin-top: 7vh;
 	margin-bottom: 15px;
+	position: relative;
+}
+
+#presslogo .owl-prev{
+	position: absolute;
+	left: 20px;
+	bottom: 0;
+	background-image: url(../art/home/downArrow.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-transform: rotate(-90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
+	width: 50px;
+	height: 100%;
+	-webkit-background-size: 50%;
+	background-size: 60%;
+	opacity: .6;
+	-webkit-transition: opacity .2s;
+	-o-transition: opacity .2s;
+	transition: opacity .2s;
+}
+#presslogo .owl-next{
+	position: absolute;
+	right: 10px;
+	bottom: 0;
+	background-image: url(../art/home/downArrow.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+	width: 50px;
+	height: 100%;
+	-webkit-background-size: 50%;
+	background-size: 60%;
+	opacity: .6;
+	-webkit-transition: opacity .2s;
+	-o-transition: opacity .2s;
+	transition: opacity .2s;
+}
+
+#presslogo .owl-next:hover,
+#presslogo .owl-prev:hover{
+	opacity: 1;
 }
 
 #presslogo img {
@@ -2859,7 +3149,7 @@ html {
 #slide_salon{
 	position: absolute;
 	top: 10px;
-	left: 110px;
+	left: 0px;
 	width: 150px;
 	height: 100px;
 	display: block;
@@ -2873,7 +3163,7 @@ html {
 }
 #nav-membership:hover{
 	cursor: pointer;
-	color: #b3ab8d;
+	color: #f45fff;
 }
 .slide_salonm{
 	display: none;
@@ -2899,5 +3189,61 @@ input[type="checkbox"]{
     margin-top: 8px;
     margin-right: 10px;
     float: left;
+}
 
+#popup {
+  display: table;
+  position: fixed; top: 0; left: 0;
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  background: rgba(240,240,240,.9);
+  visibility: hidden;
+  animation: animaciya 1s 5s forwards; /* 5s - это количество секунд по истечении которых появляется сообщение */ 
+  cursor: pointer;
+}
+@keyframes animaciya {   
+  from {visibility: hidden;}  
+  to {visibility: visible;} 
+}
+#popup figure {
+  display: table-cell;
+  vertical-align: middle;
+}
+#popup div, #popup figcaption, #popup figure:before {
+  max-width: 500px; /* максимальная ширина */ 
+  margin: 0 auto;
+  border-style: solid; 
+  border-color: rgb(88,125,164);
+  background: #fff;
+}
+#popup figure:before { /* стиль кнопки "закрыть" */ 
+  content: "закрыть";
+  display: block;
+  padding: 0 1%;
+  border-width: 4px 4px 0 4px;
+  border-radius: 5px 5px 0 0;
+  text-align: right;
+  color: rgb(88,125,164);
+}
+#popup div, #popup figcaption {
+  padding: 1%;
+  cursor: default;
+}
+#popup figcaption {
+  position: relative;
+  border-width: 0 4px 0 4px;
+  font-size: 150%;
+  text-transform: uppercase;
+  color: rgb(100,100,100);
+}
+#popup figcaption:before { /* стиль восклицательного знака, не поддерживается Google Chrome. Его можно заменить на что-то более приемлемое */ 
+  content: "\26a0 \20 \20";
+  color: red;
+  font-size: 150%;
+  vertical-align: middle;
+}
+#popup div {
+  border-width: 0 4px 4px 4px;
+  border-radius: 0 0 5px 5px;
 }
