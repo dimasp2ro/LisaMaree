@@ -16,7 +16,7 @@
 
 	<div id=perspective class="perspective effect-aston">
 		<div id=legal class=container>
-			<header id=pc-nav class=header-white style="top: 30px;">
+			<header id=pc-nav class=header-white style="top: 30px; position: absolute">
 				<div id=pc-show-menu class="clickable uppercase">
 					<!-- <div class=transformicon>
 						<button id=menu-button type=button role=button aria-label="Toggle Navigation" class="lines-button x">
@@ -30,10 +30,10 @@
 					</div></a>
 					<a href="index.html"><div id=logoB class="logo logo-black">
 					</div></a>
-					<nav class="nav_mnu blacktxt">
+					<nav class="nav_mnu blacktxt" style="position: absolute; top: 72px">
 						<ul>
 							<li><a href="about.html">About us</a></li>
-							<li class="salon"><!-- <a href="salon.html">SALON/STYLIST</a> -->SALON/STYLIST<ul id="slide_salon">
+							<li class="salon"><!-- <a href="salon.html">SALON/STYLIST</a> -->BECOME A PARTNER<ul id="slide_salon">
 								<li><a href="salon.html">SALON</a></li>
 								<li><a href="stylist.html">STYLIST</a></li>
 							</ul>
@@ -45,7 +45,7 @@
 							<li><a class=link id=nav-contact href="https://glamazonapp.com/salon">SALON/STYLIST LOGIN</a></li>
 						</ul>
 					</nav>
-					<div id=clubbing>
+					<div id=clubbing style="position: absolute;top: 75px">
 						<div id=btn-left class="btn-white btn-left-white uppercase"><a href="https://itunes.apple.com/au/app/glamazon/id874196518?mt=8">DOWNLOAD THE APP</a></div>
 					</div>
 				</div>
@@ -242,7 +242,7 @@
 				<div class=title>
 					<h3><img src=art/line.png>FAQ<img src=art/line.png></h3>
 				</div>
-				<div class=content>
+				<div class="content content_faq">
 
 					<ol>
 
@@ -319,7 +319,7 @@
 						<a class=link id=nav-home href=index.html>HOME</a>
 						<div class=break></div>
 						<a class=link id=nav-venues href=about.html>ABOUT US</a> 
-						<p class=link id=nav-membership>SALON/STYLIST</p>
+						<p class=link id=nav-membership>BECOME A PARTNER</p>
 						<ul id="slide_salonm">
 							<li><a href="salon.html">SALON</a></li>
 							<li><a href="stylist.html">STYLIST</a></li>
@@ -362,9 +362,15 @@ document.getElementById('popup').onclick = okno;
 function okno(e) {
   if (e.target.nodeName != 'DIV' && e.target.nodeName != 'H2' && e.target.nodeName != 'P' && e.target.nodeName != 'FORM'  && e.target.nodeName != 'INPUT' && e.target.nodeName != 'FIGCAPTION' || e.keyCode==27) { // через && перечисляются теги, клинкув на которые окно не будет закрыто; сюда же можно включить тег A или IFRAME 
   	document.getElementById('popup').style.display='none';  	
-		$("#popup").removeClass('popup_fast');
+  	sessionStorage.setItem('popup1', 'none');	
+  	$("#popup").removeClass('popup_fast');
   }
-};
+}
+
+if(sessionStorage.getItem('popup1')) {
+	document.getElementById('popup').style.display='none';
+	$("#popup").removeClass('popup_fast');
+}
 
 $('#subscribeDialogContent span').click(function() {
 	$name = $("#subscribeName");

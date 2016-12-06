@@ -33,10 +33,10 @@
 					</div></a>
 					<a href="index.html"><div id=logoB class="logo logo-black">
 					</div></a>
-					<nav class="nav_mnu blacktxt">
+					<nav class="nav_mnu">
 						<ul>
 							<li><a href="about.html">About us</a></li>
-							<li class="salon"><!-- <a href="salon.html">SALON/STYLIST</a> -->SALON/STYLIST
+							<li class="salon"><!-- <a href="salon.html">SALON/STYLIST</a> -->BECOME A PARTNER
 								<ul id="slide_salon">
 									<li><a href="salon.html">SALON</a></li>
 									<li><a href="stylist.html">STYLIST</a></li>
@@ -182,34 +182,16 @@
 					<div id=scroll-button><img src=art/home/downArrow.png><p>THE APP</p>
 					</div>
 
-					<div id="presslogo" class="owl-carousel">
-						<img src="art/home/Pressbar/press_logo_01_VOGUE.png">
-						<img src="art/home/Pressbar/press_logo_02_mashable.png">
-						<img src="art/home/Pressbar/press_logo_03_huffington.png" style="height: 55px;">
-						<img src="art/home/Pressbar/press_logo_04_BandT.png" style="height: 50px;">
-						<img src="art/home/Pressbar/press_logo_05_HarperBazaar.png">
-						<img src="art/home/Pressbar/press_logo_06_AustralianAnthill.png">
-						<img src="art/home/Pressbar/press_logo_07_popsugar.png" style="height: 20px;">
-						<img src="art/home/Pressbar/press_logo_08_Professional_beauty.png" style="height: 50px;">
-						<img src="art/home/Pressbar/press_logo_09_Renegade_Collective.png">
-						<img src="art/home/Pressbar/press_logo_10_Sporteluxe.png">
-						<img src="art/home/Pressbar/press_logo_11_The_Urban_List.png" style="height: 40px;">
-						<img src="art/home/Pressbar/press_logo_12_Gritty_Pretty.png" style="height: 50px;">
-						<img src="art/home/Pressbar/press_logo_13_cosmopolitan.png" style="height: 40px;">
-						<img src="art/home/Pressbar/press_logo_14_CLEO.png">
-					</div>
-
-
 				</div>
 				<div id=phone>
-					<div id=circles class="floatables halfheight">
+					<!-- <div id=circles class="floatables halfheight">
 						<div class="circles circle1"></div>
 						<div class="circles circle2"></div>
 						<div class="circles circle3"></div>
 						<div class="circles circle4"></div>
 						<div class="circles circle5"></div>
-						<!-- <div class="circles circle6"></div> -->
-					</div>
+						<div class="circles circle6"></div>
+					</div> -->
 					<div id=phone-image class="floatables halfheight">
 						<div class="phone-image halfheight slide1">
 						</div>
@@ -291,6 +273,24 @@
 						</ul>
 					</div>
 
+					<div id="presslogo">
+						<img src="art/home/Pressbar/press_logo_01_VOGUE.png">
+						<img src="art/home/Pressbar/press_logo_02_mashable.png">
+						<img src="art/home/Pressbar/press_logo_03_huffington.png" style="height: 45px;">
+						<img src="art/home/Pressbar/press_logo_04_BandT.png" style="height: 50px;">
+						<img src="art/home/Pressbar/press_logo_05_HarperBazaar.png">
+						<img src="art/home/Pressbar/press_logo_06_AustralianAnthill.png">
+						<img src="art/home/Pressbar/press_logo_07_popsugar.png" style="height: 20px;">
+						<img src="art/home/Pressbar/press_logo_08_Professional_beauty.png" style="height: 50px;">
+						<img src="art/home/Pressbar/press_logo_09_Renegade_Collective.png">
+						<img src="art/home/Pressbar/press_logo_10_Sporteluxe.png">
+						<img src="art/home/Pressbar/press_logo_11_The_Urban_List.png" style="height: 40px;">
+						<img src="art/home/Pressbar/press_logo_12_Gritty_Pretty.png" style="height: 50px;">
+						<img src="art/home/Pressbar/press_logo_13_cosmopolitan.png" style="height: 40px;">
+						<img src="art/home/Pressbar/press_logo_14_CLEO.png">
+					</div>
+
+
 				</div>
 			</div>
 			<div class=background>
@@ -306,7 +306,7 @@
 				<a class=link id=nav-home href=index.html>HOME</a>
 				<div class=break></div>
 				<a class=link id=nav-venues href=about.html>ABOUT US</a> 
-				<p class=link id=nav-membership>SALON/STYLIST</p>
+				<p class=link id=nav-membership>BECOME A PARTNER</p>
 				<ul id="slide_salonm">
 					<li><a href="salon.html">SALON</a></li>
 					<li><a href="stylist.html">STYLIST</a></li>
@@ -354,9 +354,15 @@ document.getElementById('popup').onclick = okno;
 function okno(e) {
   if (e.target.nodeName != 'DIV' && e.target.nodeName != 'H2' && e.target.nodeName != 'P' && e.target.nodeName != 'FORM'  && e.target.nodeName != 'INPUT' && e.target.nodeName != 'FIGCAPTION' || e.keyCode==27) { // через && перечисляются теги, клинкув на которые окно не будет закрыто; сюда же можно включить тег A или IFRAME 
   	document.getElementById('popup').style.display='none';  	
-		$("#popup").removeClass('popup_fast');
+  	sessionStorage.setItem('popup1', 'none');	
+  	$("#popup").removeClass('popup_fast');
   }
-};
+}
+
+if(sessionStorage.getItem('popup1')) {
+	document.getElementById('popup').style.display='none';
+	$("#popup").removeClass('popup_fast');
+}
 
 $('#subscribeDialogContent span').click(function() {
 	$name = $("#subscribeName");
@@ -475,7 +481,6 @@ $('#sub_pop').click(function() {
 <script type=text/javascript src=js/classie.js></script>
 <script type=text/javascript src=js/perspective_menu.js></script>
 <script type=text/javascript src=js/homePhone.js></script>
-<script type=text/javascript src="js/owl.carousel.min.js"></script>
 
 <script type=text/javascript>
 	if(jQuery.browser.mobile || navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)){
@@ -494,16 +499,16 @@ $('#sub_pop').click(function() {
 		bg.push($('.bg' + 0));
 		bg.push($('.bg' + 1));
 		bg.push($('.bg' + 9));
-		var circles = new Array();
+		// var circles = new Array();
 		var slides = new Array();
 		for(var i = 1; i <= 6; i++){
-			circles.push($('.circle' + i));
+			// circles.push($('.circle' + i));
 			slides.push($('.slide' + i));
 		}
 		// $('.phone-image').css('opacity', 0);
 
 		var phoneParent = $("#phone-image");
-		var circleParent = $("#circles");
+		// var circleParent = $("#circles");
 
 		$window.on('resize', resizer);
 		$window.on('scroll', resizer);
@@ -544,8 +549,8 @@ $('#sub_pop').click(function() {
 					slides[s3prev].css('opacity', 0);
 					slides[s3].css('opacity', 1);
 						// flipTo(s3);
-						circles[s3prev].css('opacity', 0);
-						circles[s3].css('opacity', 1);
+						// circles[s3prev].css('opacity', 0);
+						// circles[s3].css('opacity', 1);
 						s3prev = s3;
 					}
 
@@ -562,11 +567,11 @@ $('#sub_pop').click(function() {
 					bg[2].css('opacity', 0);
 					phoneParent.css({
 						position : "fixed",
-						top : Math.max(height - top + 15 + (top/height-0.5)*phoneHeight/2, 500-top),
+						top : Math.max(height - top + 15 + (top/height-0.5)*phoneHeight/2, 600-top),
 						left : width/2-168-(top/height)*235,
 					});
 					if(prevColor != "white"){
-						circles[s3].css('opacity', 0);
+						// circles[s3].css('opacity', 0);
 					}
 					swapHeaderColours("white");
 					$("#phone-image2").css({
@@ -577,7 +582,7 @@ $('#sub_pop').click(function() {
 				//mid bit
 				else if(top >= height && top <= $(document).height() - height*2){
 					if(prevColor != "black"){
-						circles[s3].css('opacity', 1);
+						// circles[s3].css('opacity', 1);
 						bg[0].css('opacity', 0);
 						bg[1].css('opacity', 1);
 						bg[2].css('opacity', 0);
@@ -592,11 +597,11 @@ $('#sub_pop').click(function() {
 							left : width/2-406,
 						});
 
-						circleParent.css({
-							position : "fixed",
-							top : height/2-Math.round(phoneHeight/2)+30 /*+ 80*/,
-							left : width/2 - 435,
-						});
+						// circleParent.css({
+						// 	position : "fixed",
+						// 	top : height/2-Math.round(phoneHeight/2)+30 /*+ 80*/,
+						// 	left : width/2 - 435,
+						// });
 					}
 					if(top >= $(document).height() - height*2){
 						number /= 2;
@@ -621,11 +626,11 @@ $('#sub_pop').click(function() {
 										// left : width/2-168,
 									});
 
-						circleParent.css({
-							position : "absolute",
-							top : height*8 + height/2-Math.round(phoneHeight/2)+30+80,
-							left : width/2 - 470,
-						});
+						// circleParent.css({
+						// 	position : "absolute",
+						// 	top : height*8 + height/2-Math.round(phoneHeight/2)+30+80,
+						// 	left : width/2 - 470,
+						// });
 					}
 					var pwidth = bottomPhones.css('width');
 					pwidth = parseInt(pwidth.split("p")[0]);
@@ -661,15 +666,7 @@ $('#sub_pop').click(function() {
 
 		<script type="text/javascript">
 			$(document).ready(function(){
-				$('#presslogo').owlCarousel({
-					loop: true,
-					items: 8,
-					margin: 20,
-					center: true,
-					autoplay: true,
-					nav: true,
-					navText: [ , ]
-				});
+				
 				$(".salon").click(function(){
 					if($('#slide_salon').is(":hidden")){
 						$("#slide_salon").stop().slideDown(600);

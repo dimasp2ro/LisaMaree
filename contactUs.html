@@ -31,7 +31,7 @@
 	<nav class="nav_mnu blacktxt">
 		<ul>
 			<li><a href="about.html">About us</a></li>
-			<li class="salon"><!-- <a href="salon.html">SALON/STYLIST</a> -->SALON/STYLIST<ul id="slide_salon">
+			<li class="salon"><!-- <a href="salon.html">SALON/STYLIST</a> -->BECOME A PARTNER<ul id="slide_salon">
 				<li><a href="salon.html">SALON</a></li>
 				<li><a href="stylist.html">STYLIST</a></li>
 			</ul></li>
@@ -229,7 +229,7 @@
 			</script>
 			<div class=wrapper>
 				<div class=fullsize>
-					<h1>IF YOU WOULD LIKE TO SPEAK TO US<br>PLEASE CONTACT US AT:</h1>
+					<h1 style="font-size: 1.6rem">IF YOU WOULD LIKE TO SPEAK TO US<br>PLEASE CONTACT US AT:</h1>
 					<p class=deats>
 						<img src=art/contact/phoneIcon.png>&nbsp;&nbsp;&nbsp;1300 92 10 65
 					</p>
@@ -237,7 +237,8 @@
 						<img src=art/contact/emailIcon.png>&nbsp;&nbsp;&nbsp;info@glamazonapp.com
 					</p>
 					<p class=deats></p>
-					<p>For all press enquiries please email: team@glamazonapp.com</p>
+					<p class=deats>For all press enquiries please email: team@glamazonapp.com</p>
+					<p class=deats>For all wedding or group booking enquiries please email: bookings@glamazonapp.com</p>
 					<div class="soc-btn">
 						<a href="#"><img src="art/fb.png" alt=""></a>
 						<a href="#"><img src="art/in.png" alt=""></a>
@@ -263,7 +264,7 @@
 					<a class=link id=nav-home href=index.html>HOME</a>
 					<div class=break></div>
 					<a class=link id=nav-venues href=about.html>ABOUT US</a> 
-					<p class=link id=nav-membership>SALON/STYLIST</p>
+					<p class=link id=nav-membership>BECOME A PARTNER</p>
 					<ul id="slide_salonm">
 						<li><a href="salon.html">SALON</a></li>
 						<li><a href="stylist.html">STYLIST</a></li>
@@ -305,9 +306,15 @@ document.getElementById('popup').onclick = okno;
 function okno(e) {
   if (e.target.nodeName != 'DIV' && e.target.nodeName != 'H2' && e.target.nodeName != 'P' && e.target.nodeName != 'FORM'  && e.target.nodeName != 'INPUT' && e.target.nodeName != 'FIGCAPTION' || e.keyCode==27) { // через && перечисляются теги, клинкув на которые окно не будет закрыто; сюда же можно включить тег A или IFRAME 
   	document.getElementById('popup').style.display='none';  	
-		$("#popup").removeClass('popup_fast');
+  	sessionStorage.setItem('popup1', 'none');	
+  	$("#popup").removeClass('popup_fast');
   }
-};
+}
+
+if(sessionStorage.getItem('popup1')) {
+	document.getElementById('popup').style.display='none';
+	$("#popup").removeClass('popup_fast');
+}
 
 $('#subscribeDialogContent span').click(function() {
 	$name = $("#subscribeName");
