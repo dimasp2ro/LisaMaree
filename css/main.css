@@ -906,7 +906,7 @@ html, body, .perspective {
 	color: white;
 	text-transform: uppercase; }
 	#contact-us h1 {
-		margin-top: 2rem;
+		margin-top: 4rem;
 		padding-top: 10rem;
 		font-size: 3.5rem;
 		letter-spacing: 8px; }
@@ -2042,7 +2042,7 @@ html, body, .perspective {
 		-webkit-background-size: cover;
 		background-size: cover;
 		margin-left: -62px;
-		margin-top: 16px;
+		/*margin-top: 16px;*/
 	}
 		#pc-nav #controls .logo-black {
 			background-image: url('../art/logoblack.png');
@@ -2099,19 +2099,19 @@ html, body, .perspective {
 .header-black {
 	color: #000;
 	background-color: rgba(255, 255, 255, 0.5);
-	-ms-transform: translate(0, -15px);
+	/*-ms-transform: translate(0, -15px);
 	-webkit-transform: translate(0, -15px);
-	transform: translate(0, -15px); }
+	transform: translate(0, -15px);*/ }
 	.header-black #controls {
-		-ms-transform: translate(0, -15px);
+		/*-ms-transform: translate(0, -15px);
 		-webkit-transform: translate(0, -15px);
-		transform: translate(0, -15px); }
+		transform: translate(0, -15px);*/ }
 		.header-black #controls #clubbing {
-			-ms-transform: translate(0, -0px);
+			/*-ms-transform: translate(0, -0px);
 			-webkit-transform: translate(0, -0px);
-			transform: translate(0, -0px); }
+			transform: translate(0, -0px);*/ }
 	.header-black #pc-show-menu {
-		top: 15px !important; }
+		/*top: 15px !important; }*/}
 
 .title {
 	position: relative; }
@@ -2748,16 +2748,14 @@ html {
 }
 
 .nav_mnu>ul{
+	padding: 0;
 	text-transform: uppercase;
 	list-style: none;
-	float: left;
-	width: 70%;
-	/*display: inline-block;*/
-	position: relative;
+	width: 100%;
+	display: inline-block;
 }
 .nav_mnu>ul>li{
 	display: inline-block;
-	float: left;
 	margin: 0 1%;
 }
 .nav_mnu ul li a{
@@ -2900,12 +2898,19 @@ html {
 	vertical-align: top;
 	margin: 10px 20px;
 }
-#contact-us>header{
+#contact-us header,
+#legal header{
 	position: absolute;
 	top: 0px;
 }
-#contact-us>header>.nav_mnu{
-	top: 72px;
+#legal header{
+	top: 30px;
+}
+#legal header .nav_mnu{
+	top: 71px;
+}
+#legal #pc-nav #controls #clubbing{
+	top: 75px;
 }
 #contact-us .about_p p,
 #contact-us .about_wrap p{	
@@ -3195,6 +3200,19 @@ input[type="checkbox"]{
 	overflow-x: hidden;
 }
 
-#contact-us header .nav_mnu{
+#contact-us header .nav_mnu,
+#legal header .nav_mnu {
 	top: 71px;
+	left: 9vw;
+	width: 74vw; 
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+#home header .nav_mnu{
+	left: 9vw;
+	width: 74vw; 
+	text-align: center;
+	margin: 0;
+	padding: 0;
 }
