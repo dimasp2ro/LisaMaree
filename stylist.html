@@ -230,13 +230,20 @@
 			<div class=wrapper>
 				<div class=fullsize>
 					<h1>ARE YOU A STYLIST?</h1>
-					<form id="form_salon">
+					<form id="form_stylist">
+
+						<!-- Hidden Required Fields -->
+						<input type="hidden" name="project_name" value="Glamazon - Page STYLIST">
+						<input type="hidden" name="admin_email" value="lisa@glamazonapp.com">
+						<input type="hidden" name="form_subject" value="New letter from Page Stylist">
+						<!-- END Hidden Required Fields -->
+
 						<div class="center-block">
-							<input id="name" type="text" required placeholder="Name">
-							<input id="salon" type="text" required  placeholder="Stylist">
-							<input id="emailAddressSalon" type="email" required placeholder="Email Address">
-							<input id="phone" type="tel" placeholder="Phone">
-							<a href="#are-you-a-salon" id="areYouASalonSubmit"><img src="art/salon/call-back.png" alt="Notify me"></a>
+							<input id="name" type="text" name="Name" required placeholder="Name">
+							<input id="salon" type="text" name="Stylist" required  placeholder="Stylist">
+							<input id="emailAddressSalon" name='Email' type="email" required placeholder="Email Address">
+							<input id="phone" type="tel" name="Phone" placeholder="Phone">
+							<button><img src="art/salon/call-back.png" alt="Notify me"></button>
 						</div>
 					</form>
 					<script>
@@ -263,6 +270,25 @@
 							return false;
 						}
 					});
+
+					//E-mail Ajax Send
+					$("#form_stylist").submit(function() { //Change
+						var th = $(this);
+						$.ajax({
+							type: "POST",
+							url: "mail.php", //Change
+							data: th.serialize()
+						}).done(function() {
+							alert('Thanks for your submission!\nOur manager will contact you!');
+							setTimeout(function() {
+								// Done Functions
+								th.trigger("reset");
+							}, 1000);
+						});
+						return false;
+					});
+
+
 				</script>
 
 
@@ -312,24 +338,32 @@
 				<a href=https://www.instagram.com/Glamazon_app/ title="Glamazon on Instagram"><div id=in-link></div></a></div></div></div>
 
 	<div id="popup">
-		<figure>
-			<div id="subscribeDialog">			
-				<h2>Become a Glamazon VIP</h2>
-				<p>Get the best deals and hottest beauty trends straight to your inbox</p>
-				<div id="subscribeDialogContent">
-					<form>
-						<input id="subscribeName" placeholder="NAME" type="text" required>
-						<input id="subscribeEmail" placeholder="EMAIL ADDRESS" type="email" required>
-						<span style="color: #808080;" class="btn btn-default clear-btn">Subscribe</span>
-					</form>
-				</div>
-			</div>
-		</figure>
+				<figure>
+					<div id="subscribeDialog">			
+						<h2>Become a Glamazon VIP</h2>
+						<p>Get the best deals and hottest beauty trends straight to your inbox</p>
+						<div id="subscribeDialogContent">
+							<form id='subscribe_pop'>
 
-	</div>
+								<!-- Hidden Required Fields -->
+								<input type="hidden" name="project_name" value="Glamazon Subscribe">
+								<input type="hidden" name="admin_email" value="info@glamazonapp.com">
+								<input type="hidden" name="form_subject" value="New letter from Glamazon">
+								<!-- END Hidden Required Fields -->
+
+								<input id="subscribeName" name="Name" placeholder="NAME" type="text" required>
+								<input id="subscribeEmail" name="Email" placeholder="EMAIL ADDRESS" type="email" required>
+								<button style="color: #808080;" class="btn btn-default clear-btn">Subscribe</button>
+							</form>
+						</div>
+					</div>
+				</figure>
+
+			</div>
 
 
 	<script>
+
 window.onkeyup = okno; // нажатие Esc, см. условие "e.keyCode==27" 
 document.getElementById('popup').onclick = okno;
 
@@ -339,31 +373,51 @@ function okno(e) {
   	sessionStorage.setItem('popup1', 'none');	
   	$("#popup").removeClass('popup_fast');
   }
-}
+};
 
 if(sessionStorage.getItem('popup1')) {
 	document.getElementById('popup').style.display='none';
 	$("#popup").removeClass('popup_fast');
 }
 
-$('#subscribeDialogContent span').click(function() {
+$('#subscribeDialogContent button').click(function() {
 	$name = $("#subscribeName");
 	$emailAddressSalon = $("#subscribeEmail");
 	if ($name.val().length == 0) {
 		alert('Please enter your name');
 		return false;
 	}
+
 	function isValidEmailAddress(emailAddress) {
 		var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
 		return pattern.test(emailAddress);
 	}
-	if ($emailAddressSalon.val().length == 0 || !isValidEmailAddress($emailAddressSalon)){
-		alert('Please enter your correct email address');
-		return false;
-	}
-	alert('Thanks for subscribing.');
+	// if ($emailAddressSalon.val().length == 0 || !isValidEmailAddress($emailAddressSalon)){
+	// 	alert('Please enter your correct email address');
+	// 	return false;
+	// }				
+
+	// alert('Thanks for subscribing.');
 	$("#popup").removeClass('popup_fast');
 });
+
+//E-mail Ajax Send
+	$("#subscribe_pop").submit(function() { //Change
+		var th = $(this);
+		$.ajax({
+			type: "POST",
+			url: "mail.php", //Change
+			data: th.serialize()
+		}).done(function() {
+			alert('Thanks for subscribing!');
+			setTimeout(function() {
+				// Done Functions
+				th.trigger("reset");
+			}, 1000);
+		});
+		return false;
+	});
+
 
 $('#sub_pop').click(function() {
 	$("#popup").addClass('popup_fast').css('display', 'table');
