@@ -751,6 +751,7 @@ html, body, .perspective {
 		padding-left: 0.5rem;
 		letter-spacing: 5px; }
 	#home .pslides {
+		width: 50vw;
 		color: #4c5359;
 		font-size: 1.2rem;
 		font-family: "FaberSansPro45reduced", sans-serif;

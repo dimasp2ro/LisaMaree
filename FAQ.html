@@ -181,10 +181,10 @@
 				// 	}
 				// }
 
-				// if(jQuery.browser.mobile || navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)){
-				// 	document.getElementById("mobile-nav").style.display = "block";
-				// 	$(".container").css("padding-top", "10px");
-				// }
+				if(jQuery.browser.mobile || navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)){
+					document.getElementById("mobile-nav").style.display = "block";
+					$(".container").css("padding-top", "10px");
+				}
 				// else{
 				// 	document.getElementById("pc-nav").style.display = "block";
 				// 	document.getElementById("pc-show-menu").style.display = "block";
@@ -437,7 +437,7 @@ $('#sub_pop').click(function() {
 								$('html').css("font-size", "14pt");
 							}
 
-							if(height < 600 || width < 900){
+							if(height < 600 || width < 1170){
 								if(!jQuery.browser.mobile && !navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)){
 									document.getElementById("pc-nav").style.display = "none";
 									document.getElementById("pc-show-menu").style.display = "none";
