@@ -460,6 +460,15 @@ textarea {
 	 ========================================================================== */
 @media only screen and (min-width: 35em) { }
 
+@media only screen and (max-width: 450px) { 
+	.fr, .fl{
+		text-align: center!important;
+	}
+	.about_p{
+		width: 90%!important;
+	}
+}
+
 @media print, (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dppx) { }
 
 /* ==========================================================================
@@ -751,7 +760,7 @@ html, body, .perspective {
 		padding-left: 0.5rem;
 		letter-spacing: 5px; }
 	#home .pslides {
-		width: 50vw;
+		width: 90%;
 		color: #4c5359;
 		font-size: 1.2rem;
 		font-family: "FaberSansPro45reduced", sans-serif;
@@ -988,7 +997,7 @@ html, body, .perspective {
 		letter-spacing: 2px;
 		font-weight: normal;
 		font-size: 0.8rem;
-		margin-top: 6rem;
+		margin-top: 20vh;
 		margin-bottom: 0rem; }
 	#mobile p {
 		font-family: "FaberSansPro45reduced", sans-serif;
@@ -996,7 +1005,7 @@ html, body, .perspective {
 		margin: 0 6%;
 		padding-top: 15px; }
 	#mobile .pheading {
-		padding-bottom: 3rem; }
+		padding-bottom: 1rem; }
 	#mobile .the-app {
 		font-family: "FaberSansPro45reduced", sans-serif;
 		font-weight: bold;
@@ -1066,24 +1075,25 @@ html, body, .perspective {
 			margin-right: 10%; }
 	#mobile .bg1 {
 		background: url(../art/mobile/mobile1.jpg);
-		background-size: cover; }
+		background-size: cover;
+		background-position: center; }
 	#mobile .bg2 {
 		background: url(../art/mobile/mobile2.jpg);
 		background-size: cover; }
 	#mobile .bg3 {
-		background: url(../art/mobile/mobile3.jpg);
+		background: url(../art/mobile/mobile2.jpg);
 		background-size: cover; }
 	#mobile .bg4 {
-		background: url(../art/mobile/mobile4.jpg);
+		background: url(../art/mobile/mobile2.jpg);
 		background-size: cover; }
 	#mobile .bg5 {
-		background: url(../art/mobile/mobile5.jpg);
+		background: url(../art/mobile/mobile2.jpg);
 		background-size: cover; }
 	#mobile .bg6 {
-		background: url(../art/mobile/mobile6.jpg);
+		background: url(../art/mobile/mobile2.jpg);
 		background-size: cover; }
 	#mobile .bg7 {
-		background: url(../art/mobile/mobile7.jpg);
+		background: url(../art/mobile/mobile2.jpg);
 		background-size: cover; }
 	#mobile .bg8 {
 		background: url(../art/mobile/mobile8.jpg);
@@ -2005,7 +2015,7 @@ html, body, .perspective {
 
 #pc-nav {
 	width: 100%;
-	height: 125px;
+	height: 120px;
 	position: fixed;
 	text-align: center;
 	font-size: 12pt;
@@ -2016,7 +2026,7 @@ html, body, .perspective {
 	#pc-nav #controls {
 		position: inherit;
 		width: 100%;
-		top: 15px;
+		top: 10px;
 		text-align: center; }
 		#pc-nav #controls .logo {
 			float: left;
@@ -2099,7 +2109,7 @@ html, body, .perspective {
 
 .header-black {
 	color: #000;
-	background-color: rgba(255, 255, 255, 0.5);
+	background-color: rgba(255, 255, 255, 1);
 	/*-ms-transform: translate(0, -15px);
 	-webkit-transform: translate(0, -15px);
 	transform: translate(0, -15px);*/ }
@@ -2126,7 +2136,7 @@ html, body, .perspective {
 		font-weight: normal;
 		font-size: 0.85rem;
 		margin-top: 0rem;
-		padding-top: 16rem;
+		padding-top: 14rem;
 		overflow: hidden;
 		white-space: nowrap; }
 		.title h3 img {

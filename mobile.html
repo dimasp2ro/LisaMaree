@@ -9,6 +9,7 @@
 <title>Glamazon</title>
 <meta name=description>
 <meta name=viewport content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="art/home/favicon.ico" type="image/x-icon" />
 <link rel=stylesheet href=css/main.css>
 <script type=text/javascript src=js/modernizr.js></script>
 <script src="js/jquery.min.js"></script>
@@ -114,8 +115,10 @@
 <h1>JOIN THE MOVEMENT</h1>
 <p class=pheading>Book a professional stylist to you or be glammed at your favourite salon, anywhere in Australia.<br> Book Beauty. Anytime, Anywhere.</p>
 <a href="/web/20160310162654/https://itunes.apple.com/au/app/aston-club/id691134355?mt=8"><img src=art/appStoreLogo.svg class=download-app></a> 
-<a href="/web/20160310162654/https://play.google.com/store/apps/details?id=com.loke.aston"><img src=art/googlePlayLogo.svg class="download-app download-app-play"></a>
-<div id=scroll-button><img src=art/home/downArrow.png><p>THE APP</p></div>
+<a href="/web/20160310162654/https://play.google.com/store/apps/details?id=com.loke.aston"><img src=art/googlePlayLogo.svg class="download-app download-app-play"></a><!-- 
+<div id=scroll-button><img src=art/home/downArrow.png>
+<p>THE APP</p>
+</div> -->
 </div>
 <div class="fullsize bg2">
 <div class=left><img class=phone src=art/home/phone1.png></div>
@@ -136,8 +139,9 @@
 <div class="fullsize bg4">
 <div class=left><img class=phone src=art/home/phone3.png></div>
 <div class="right text">
-<h3 class="text h3slides">Stylist or</h3>
-<h1 class="text h1slides">SALON?</h1>
+<h1 class="text h1slides">STYLIST?</h1>
+<h3 class="text h3slides">Salon or</h3>
+<h1 class="text h1slides">STYLIST?</h1>
 <p class="text pslides">Whether you prefer a salon experience or being Glammed in the comfort of your home, hotel or office; we have you covered!</p>
 </div>
 </div>
@@ -206,6 +210,7 @@
     $window = $(window);
 
     var fullsizes = $(".fullsize");
+    var bgsz = $(".bg1");
     
 
     $window.on('resize', update);
@@ -216,7 +221,7 @@
         height = $window.height();
         width = $window.width();
         var top = document.documentElement.scrollTop || window.scrollY;
-        if(top <= height || top >= height*7){
+        if(top <= (height + 100) || top >= height*6 + 365){
             swapHeaderColours("white");
         }
         else{
@@ -227,18 +232,23 @@
             height: height,
             width: width
         });
-        $("#scroll-button").css({
-            top: height - height/6,
-            left: width/2 -30
+
+        bgsz.css({
+            height: height + 100,
+            width: width
         });
+        // $("#scroll-button").css({fullsize
+        //     top: height - height/6,
+        //     left: width/2 -30
+        // });
     }
     setTimeout(update, 100);
 
-    $("#scroll-button")[0].addEventListener( 'touchstart', function( ev ) {
-        $('html, body').animate({
-            scrollTop: $(window).height() +40
-        }, 1000);
-    });
+    // $("#scroll-button")[0].addEventListener( 'touchstart', function( ev ) {
+    //     $('html, body').animate({
+    //         scrollTop: $(window).height() +40
+    //     }, 1000);
+    // });
 </script><!DOCTYPE html><script type=text/javascript src=js/classie.js></script><script type=text/javascript src=js/perspective_menu.js></script>
 
     <script type="text/javascript">

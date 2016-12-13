@@ -7,6 +7,7 @@
 	<title>Glamazon</title>
 	<meta name=description>
 	<meta name=viewport content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="art/home/favicon.ico" type="image/x-icon" />
 	<link rel=stylesheet href=css/main.css>
 	<script type=text/javascript src=js/modernizr.js></script>
 	<script src="js/jquery.min.js"></script>
@@ -178,10 +179,10 @@
 				// 	}
 				// }
 
-				// if(jQuery.browser.mobile || navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)){
-				// 	document.getElementById("mobile-nav").style.display = "block";
-				// 	$(".container").css("padding-top", "10px");
-				// }
+				if(jQuery.browser.mobile || navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)){
+					document.getElementById("mobile-nav").style.display = "block";
+					$(".container").css("padding-top", "10px");
+				}
 				// else{
 				// 	document.getElementById("pc-nav").style.display = "block";
 				// 	document.getElementById("pc-show-menu").style.display = "block";
