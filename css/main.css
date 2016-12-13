@@ -460,7 +460,12 @@ textarea {
 	 ========================================================================== */
 @media only screen and (min-width: 35em) { }
 
-@media only screen and (max-width: 450px) { 
+@media only screen and (max-width: 480px) { 
+	#contact-us h3 img{
+		display: none!important;
+	}
+}
+@media only screen and (max-width: 457px) { 
 	.fr, .fl{
 		text-align: center!important;
 	}
